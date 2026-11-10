@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ name }} | Portfolio</title>
+    <!-- We will link your CSS file here in the next step -->
+    <link rel="stylesheet" href="{{ url_for('static', path='/styles.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>{{ name }}</h1>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+<!-- Hero / About Section -->
+        <section id="about" class="about-section">
+            <!-- This is the line that fetches your image -->
+            <img src="{{ url_for('static', path='/je-headshot.jpg') }}" alt="Profile Picture" class="profile-pic">
+            
+            <!-- Wrapping the text in a div keeps it grouped together next to the image -->
+            <div>
+                <h2>About Me</h2>
+                <p>
+                    I am a senior Computer Science student minoring in Data Science at the University of Houston-Downtown, graduating in December 2026. 
+                    My work spans backend infrastructure, machine learning, and data analytics.
+                </p>
+            </div>
+        </section>
+
+<!-- Dynamic Experience Section -->
+        <section id="experience">
+            <h2>Experience</h2>
+            <div>
+                <!-- Loops through your Python experience data -->
+                {% for role in experience %}
+                <article class="experience-item">
+                    <h3>{{ role.title }}</h3>
+                    <p class="experience-meta">{{ role.company }} | {{ role.dates }}</p>
+                    <p>{{ role.description }}</p>
+                </article>
+                {% endfor %}
+            </div>
+        </section>
+
+        <!-- Dynamic Projects Section -->
+        <section id="projects">
+            <h2>Featured Projects</h2>
+            <div class="project-grid">
+                <!-- This loop tells the server to create a card for every project in your Python data -->
+                {% for project in projects %}
+                <article class="project-card">
+                    <h3>{{ project.title }}</h3>
+                    <p class="tech-stack"><strong>Tools:</strong> {{ project.tools }}</p>
+                    <p>{{ project.description }}</p>
+                    <a href="{{ project.link }}" target="_blank">View Repository</a>
+                </article>
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <h2>Let's Connect</h2>
+        <p>Email: <a href="mailto:{{ email }}">{{ email }}</a></p>
+        <p><a href="{{ github_url }}">GitHub</a> | <a href="{{ linkedin_url }}">LinkedIn</a></p>
+    </footer>
+</body>
+</html>
