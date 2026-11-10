@@ -1,0 +1,166 @@
+html {
+    scroll-behavior: smooth;
+}
+
+/* --- Variables --- */
+:root {
+    --bg-color: #f8f9fa;
+    --text-color: #212529;
+    --primary-color: #0366d6;
+    --card-bg: #ffffff;
+    --border-color: #e1e4e8;
+}
+
+/* --- Base Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* --- Layout --- */
+header, main, footer {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* --- Navigation --- */
+header {
+    background-color: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+nav a:hover {
+    color: var(--primary-color);
+}
+
+/* --- Typography & Spacing --- */
+h1, h2, h3 {
+    margin-bottom: 1rem;
+}
+
+section {
+    margin-bottom: 4rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+/* --- About Section & Profile Pic --- */
+.about-section {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Make it stack vertically on small mobile screens */
+@media (max-width: 600px) {
+    .about-section {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* --- Project Grid (The Engineering Part) --- */
+.project-grid {
+    display: grid;
+    /* This line automatically adjusts the number of columns based on screen width */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.project-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.tech-stack {
+    font-size: 0.9rem;
+    color: #586069;
+}
+
+.project-card a {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.project-card a:hover {
+    text-decoration: underline;
+}
+
+/* --- Experience Section --- */
+.experience-item {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.experience-item:last-child {
+    border-bottom: none;
+}
+
+.experience-meta {
+    color: #586069;
+    font-weight: 500;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    margin-top: 2rem;
+    padding-top: 2rem;
+}
