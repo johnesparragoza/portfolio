@@ -23,7 +23,7 @@ async def serve_portfolio(request: Request):
         "name": "John Esparragoza",
         "email": "johnesparragoza@gmail.com",
         "github_url": "https://github.com/johnesparragoza",
-        "linkedin_url": "https://linkedin.com/in/john-esparragoza",
+        "linkedin_url": "https://linkedin.com/in/john-esparragoza/",
         "projects": [
             {
                 "title": "First Person Narratives for ASD Individuals AI Web App",
